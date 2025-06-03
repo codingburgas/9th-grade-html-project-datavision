@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Map - Примерен сайт</title>
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+
+  <div class="navbar" id="navbar">
+    <a href="index.html">Home</a>
+    <a href="information.html">Information</a>
+    <a href="employer.html">Employer</a>
+    <a href="cars.html">Cars</a>
+    <a href="incidents.html">Incidents</a>
+    <a href="statistics.html">Statistics</a>
+    <a href="map.html">Map</a>
+  </div>
+
+  <div class="content">
+    <h1>Map</h1>
+    <p>Карта и местоположение.</p>
+  </div>
+
+  <script>
+    const navbar = document.getElementById('navbar');
+    const links = navbar.getElementsByTagName('a');
+    const currentPage = window.location.pathname.split("/").pop();
+
+    for(let i = 0; i < links.length; i++) {
+      const linkPage = links[i].getAttribute('href');
+      if(linkPage === currentPage) {
+        links[i].classList.add('active');
+      } else {
+        links[i].classList.remove('active');
+      }
+    }
+  </script>
+
+</body>
+</html>
