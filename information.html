@@ -1,16 +1,14 @@
 <!DOCTYPE html>
 <html lang="bg">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Information - Примерен сайт</title>
-  <link rel="stylesheet" href="css/styles.css" />
+  <meta charset="UTF-8">
+  <title>Information</title>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-
   <div class="navbar" id="navbar">
     <a href="index.html">Home</a>
-    <a href="information.html">Information</a>
+    <a href="information.html" class="active">Information</a>
     <a href="employer.html">Employer</a>
     <a href="cars.html">Cars</a>
     <a href="incidents.html">Incidents</a>
@@ -19,24 +17,12 @@
   </div>
 
   <div class="content">
-    <h1>Information</h1>
-    <p>Тук е страницата с информация.</p>
+    <h1>Актуална информация за пожарните служби</h1>
+    <p>Регион: София-град</p>
+    <p>Централна пожарна служба: ул. „Пожарникарска“ №1</p>
+    <p>Телефон: 160 / 112</p>
   </div>
 
-  <script>
-    const navbar = document.getElementById('navbar');
-    const links = navbar.getElementsByTagName('a');
-    const currentPage = window.location.pathname.split("/").pop();
-
-    for(let i = 0; i < links.length; i++) {
-      const linkPage = links[i].getAttribute('href');
-      if(linkPage === currentPage) {
-        links[i].classList.add('active');
-      } else {
-        links[i].classList.remove('active');
-      }
-    }
-  </script>
-
+  <script src="js/main.js"></script>
 </body>
 </html>

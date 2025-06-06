@@ -1,17 +1,15 @@
 <!DOCTYPE html>
 <html lang="bg">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Employer - Примерен сайт</title>
-  <link rel="stylesheet" href="css/styles.css" />
+  <meta charset="UTF-8">
+  <title>Employer</title>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-
   <div class="navbar" id="navbar">
     <a href="index.html">Home</a>
     <a href="information.html">Information</a>
-    <a href="employer.html">Employer</a>
+    <a href="employer.html" class="active">Employer</a>
     <a href="cars.html">Cars</a>
     <a href="incidents.html">Incidents</a>
     <a href="statistics.html">Statistics</a>
@@ -19,24 +17,42 @@
   </div>
 
   <div class="content">
-    <h1>Employer</h1>
-    <p>Информация за работодатели.</p>
+    <h1>Служители на пожарните служби в различни региони</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Име</th>
+          <th>Длъжност</th>
+          <th>Регион</th>
+          <th>Състояние</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Иван Иванов</td><td>Командир</td><td>София</td><td class="status-free">Свободен</td></tr>
+        <tr><td>Георги Георгиев</td><td>Шофьор</td><td>София</td><td class="status-busy">В произшествие</td></tr>
+        <tr><td>Мария Петрова</td><td>Пожарникар</td><td>София</td><td class="status-waiting">Очакване</td></tr>
+        <tr><td>Николай Костов</td><td>Спасител</td><td>Пловдив</td><td class="status-free">Свободен</td></tr>
+        <tr><td>Даниела Стоянова</td><td>Инженер</td><td>Пловдив</td><td class="status-busy">В произшествие</td></tr>
+        <tr><td>Симеон Димитров</td><td>Оператор</td><td>Варна</td><td class="status-waiting">Очакване</td></tr>
+        <tr><td>Кристина Маринова</td><td>Шофьор</td><td>Варна</td><td class="status-free">Свободен</td></tr>
+        <tr><td>Тодор Великов</td><td>Пожарникар</td><td>Бургас</td><td class="status-busy">В произшествие</td></tr>
+        <tr><td>Ангел Ангелов</td><td>Командир</td><td>Бургас</td><td class="status-free">Свободен</td></tr>
+        <tr><td>Елена Алексиева</td><td>Инженер</td><td>Русе</td><td class="status-waiting">Очакване</td></tr>
+        <tr><td>Павел Христов</td><td>Пожарникар</td><td>Русе</td><td class="status-free">Свободен</td></tr>
+        <tr><td>Десислава Панова</td><td>Спасител</td><td>Стара Загора</td><td class="status-busy">В произшествие</td></tr>
+        <tr><td>Иво Василев</td><td>Оператор</td><td>Стара Загора</td><td class="status-waiting">Очакване</td></tr>
+        <tr><td>Михаил Гоцев</td><td>Командир</td><td>Благоевград</td><td class="status-free">Свободен</td></tr>
+        <tr><td>Галя Иванова</td><td>Шофьор</td><td>Благоевград</td><td class="status-busy">В произшествие</td></tr>
+        <tr><td>Христина Стефанова</td><td>Инженер</td><td>Плевен</td><td class="status-free">Свободен</td></tr>
+        <tr><td>Йордан Петров</td><td>Пожарникар</td><td>Плевен</td><td class="status-waiting">Очакване</td></tr>
+        <tr><td>Теодора Николова</td><td>Спасител</td><td>Шумен</td><td class="status-free">Свободен</td></tr>
+        <tr><td>Калоян Жеков</td><td>Оператор</td><td>Шумен</td><td class="status-busy">В произшествие</td></tr>
+        <tr><td>Радостина Тонева</td><td>Командир</td><td>Видин</td><td class="status-free">Свободен</td></tr>
+        <tr><td>Петър Павлов</td><td>Шофьор</td><td>Видин</td><td class="status-waiting">Очакване</td></tr>
+      </tbody>
+    </table>
   </div>
 
-  <script>
-    const navbar = document.getElementById('navbar');
-    const links = navbar.getElementsByTagName('a');
-    const currentPage = window.location.pathname.split("/").pop();
-
-    for(let i = 0; i < links.length; i++) {
-      const linkPage = links[i].getAttribute('href');
-      if(linkPage === currentPage) {
-        links[i].classList.add('active');
-      } else {
-        links[i].classList.remove('active');
-      }
-    }
-  </script>
-
+  <script src="js/main.js"></script>
 </body>
 </html>

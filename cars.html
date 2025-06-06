@@ -1,42 +1,50 @@
 <!DOCTYPE html>
 <html lang="bg">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Cars - Примерен сайт</title>
-  <link rel="stylesheet" href="css/styles.css" />
+  <meta charset="UTF-8">
+  <title>Cars</title>
+  <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-
   <div class="navbar" id="navbar">
     <a href="index.html">Home</a>
     <a href="information.html">Information</a>
     <a href="employer.html">Employer</a>
-    <a href="cars.html">Cars</a>
+    <a href="cars.html" class="active">Cars</a>
     <a href="incidents.html">Incidents</a>
     <a href="statistics.html">Statistics</a>
     <a href="map.html">Map</a>
   </div>
 
   <div class="content">
-    <h1>Cars</h1>
-    <p>Информация за автомобили.</p>
+    <h1>Пожарни Автомобили по Центрове</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Регистрационен номер</th>
+          <th>Модел</th>
+          <th>Тип</th>
+          <th>Център</th>
+          <th>Състояние</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>CA1234PK</td><td>Mercedes-Benz Atego</td><td>Пожарен</td><td>София</td><td class="status-free">Свободен</td></tr>
+        <tr><td>PB5678KM</td><td>MAN TGM</td><td>Спасителен</td><td>Пловдив</td><td class="status-busy">В произшествие</td></tr>
+        <tr><td>BH9876CH</td><td>Toyota Hilux</td><td>Бързо реагиране</td><td>Бургас</td><td class="status-waiting">Очакване</td></tr>
+        <tr><td>VAR2456AA</td><td>Volvo FL</td><td>Пожарен</td><td>Варна</td><td class="status-free">Свободен</td></tr>
+        <tr><td>R1234XY</td><td>Iveco Daily</td><td>Логистичен</td><td>Русе</td><td class="status-busy">В произшествие</td></tr>
+        <tr><td>ST3344TT</td><td>Scania P-Series</td><td>Пожарен</td><td>Стара Загора</td><td class="status-free">Свободен</td></tr>
+        <tr><td>BL9999BL</td><td>Renault D-Series</td><td>Спасителен</td><td>Благоевград</td><td class="status-waiting">Очакване</td></tr>
+        <tr><td>SH1111AA</td><td>Ford Transit</td><td>Команден</td><td>Шумен</td><td class="status-free">Свободен</td></tr>
+        <tr><td>PV4444BT</td><td>Dacia Duster</td><td>Патрул</td><td>Плевен</td><td class="status-busy">В произшествие</td></tr>
+        <tr><td>VD8888VV</td><td>Mercedes Sprinter</td><td>Поддръжка</td><td>Видин</td><td class="status-free">Свободен</td></tr>
+        <tr><td>CA1122CC</td><td>MAN LE</td><td>Пожарен</td><td>София</td><td class="status-waiting">Очакване</td></tr>
+        <tr><td>PB3344DD</td><td>Iveco Magirus</td><td>Лестница</td><td>Пловдив</td><td class="status-free">Свободен</td></tr>
+      </tbody>
+    </table>
   </div>
 
-  <script>
-    const navbar = document.getElementById('navbar');
-    const links = navbar.getElementsByTagName('a');
-    const currentPage = window.location.pathname.split("/").pop();
-
-    for(let i = 0; i < links.length; i++) {
-      const linkPage = links[i].getAttribute('href');
-      if(linkPage === currentPage) {
-        links[i].classList.add('active');
-      } else {
-        links[i].classList.remove('active');
-      }
-    }
-  </script>
-
+  <script src="js/main.js"></script>
 </body>
 </html>

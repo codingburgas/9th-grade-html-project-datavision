@@ -1,13 +1,18 @@
 <!DOCTYPE html>
 <html lang="bg">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Map - Примерен сайт</title>
-  <link rel="stylesheet" href="css/styles.css" />
+  <meta charset="UTF-8">
+  <title>Map</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <link rel="stylesheet" href="css/styles.css">
+  <style>
+    #map {
+      height: 600px;
+      margin-top: 20px;
+    }
+  </style>
 </head>
 <body>
-
   <div class="navbar" id="navbar">
     <a href="index.html">Home</a>
     <a href="information.html">Information</a>
@@ -15,28 +20,111 @@
     <a href="cars.html">Cars</a>
     <a href="incidents.html">Incidents</a>
     <a href="statistics.html">Statistics</a>
-    <a href="map.html">Map</a>
+    <a href="map.html" class="active">Map</a>
   </div>
 
   <div class="content">
-    <h1>Map</h1>
-    <p>Карта и местоположение.</p>
+    <h1>Карта на екипи и автомобили по градове</h1>
+    <div id="map"></div>
   </div>
 
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <script>
-    const navbar = document.getElementById('navbar');
-    const links = navbar.getElementsByTagName('a');
-    const currentPage = window.location.pathname.split("/").pop();
+    const map = L.map('map').setView([42.75, 25.2], 7);
 
-    for(let i = 0; i < links.length; i++) {
-      const linkPage = links[i].getAttribute('href');
-      if(linkPage === currentPage) {
-        links[i].classList.add('active');
-      } else {
-        links[i].classList.remove('active');
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: 'Map data © <a href="https://openstreetmap.org">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    const cities = [
+      {
+        name: "София",
+        coords: [42.6977, 23.3219],
+        team: [
+          { name: "Иван Иванов", role: "Командир", status: "Свободен" },
+          { name: "Автомобил: CA1234PK", role: "Mercedes-Benz", status: "Очакване" }
+        ]
+      },
+      {
+        name: "Пловдив",
+        coords: [42.1354, 24.7453],
+        team: [
+          { name: "Даниела Стоянова", role: "Инженер", status: "В произшествие" },
+          { name: "Автомобил: PB5678KM", role: "MAN TGM", status: "Свободен" }
+        ]
+      },
+      {
+        name: "Варна",
+        coords: [43.2141, 27.9147],
+        team: [
+          { name: "Симеон Димитров", role: "Оператор", status: "Очакване" },
+          { name: "Автомобил: VAR2456AA", role: "Volvo FL", status: "Свободен" }
+        ]
+      },
+      {
+        name: "Бургас",
+        coords: [42.5048, 27.4626],
+        team: [
+          { name: "Ангел Ангелов", role: "Командир", status: "Свободен" },
+          { name: "Автомобил: BH9876CH", role: "Toyota Hilux", status: "В произшествие" }
+        ]
+      },
+      {
+        name: "Русе",
+        coords: [43.8356, 25.9657],
+        team: [
+          { name: "Павел Христов", role: "Пожарникар", status: "Свободен" },
+          { name: "Автомобил: R1234XY", role: "Iveco Daily", status: "Свободен" }
+        ]
+      },
+      {
+        name: "Стара Загора",
+        coords: [42.4258, 25.6345],
+        team: [
+          { name: "Иво Василев", role: "Оператор", status: "Очакване" },
+          { name: "Автомобил: ST3344TT", role: "Scania P-Series", status: "Свободен" }
+        ]
+      },
+      {
+        name: "Благоевград",
+        coords: [42.0209, 23.0947],
+        team: [
+          { name: "Михаил Гоцев", role: "Командир", status: "Свободен" },
+          { name: "Автомобил: BL9999BL", role: "Renault D-Series", status: "Очакване" }
+        ]
+      },
+      {
+        name: "Плевен",
+        coords: [43.417, 24.6067],
+        team: [
+          { name: "Йордан Петров", role: "Пожарникар", status: "Очакване" },
+          { name: "Автомобил: PV4444BT", role: "Dacia Duster", status: "В произшествие" }
+        ]
+      },
+      {
+        name: "Шумен",
+        coords: [43.2706, 26.9229],
+        team: [
+          { name: "Калоян Жеков", role: "Оператор", status: "В произшествие" },
+          { name: "Автомобил: SH1111AA", role: "Ford Transit", status: "Свободен" }
+        ]
+      },
+      {
+        name: "Видин",
+        coords: [43.9962, 22.8679],
+        team: [
+          { name: "Петър Павлов", role: "Шофьор", status: "Очакване" },
+          { name: "Автомобил: VD8888VV", role: "Mercedes Sprinter", status: "Свободен" }
+        ]
       }
-    }
-  </script>
+    ];
 
+    cities.forEach(city => {
+      const marker = L.marker(city.coords).addTo(map);
+      const content = `<strong>${city.name}</strong><br>` +
+        city.team.map(e => `${e.name} (${e.role}) - <b>${e.status}</b>`).join('<br>');
+      marker.bindPopup(content);
+    });
+  </script>
 </body>
 </html>
