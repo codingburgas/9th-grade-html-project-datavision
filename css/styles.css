@@ -5,12 +5,18 @@ body {
   color: #eee;
 }
 
+h1{
+ text-align: center;
+ padding-bottom: 30px; 
+}
+
 .content {
   padding: 20px;
   background-color: #1e1e1e;
   border-radius: 8px;
   max-width: 1200px;
   margin: 20px auto;
+  
 }
 
 table, th, td {
@@ -19,6 +25,9 @@ table, th, td {
   padding: 8px;
   background-color: #2c2c2c;
   color: #eee;
+  margin-left: auto;
+  margin-right: auto;
+  
 }
 
 th {
