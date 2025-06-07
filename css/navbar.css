@@ -1,0 +1,15 @@
+.navbar {
+  display: flex;
+  background: #333;
+  padding: 10px;
+}
+
+.navbar a {
+  color: white;
+  padding: 10px;
+  text-decoration: none;
+}
+
+.navbar a.active {
+  background-color: #555;
+}
