@@ -7,6 +7,8 @@
   <link rel="stylesheet" href="css/styles.css" />
   <link rel="stylesheet" href="css/navbar.css">
   <link rel="stylesheet" href="css/incidents.css">
+  <link rel="stylesheet" href="css/chart1.css">
+
 </head>
 <body>
 
@@ -22,7 +24,28 @@
 
   <div class="content">
     <h1>Statistics</h1>
-    <p>Статистики и анализи.</p>
+    <p> Според данните за 2015 г., службите за пожарна безопасност са реагирали на общо 55 434 обаждания, като от тях са регистрирани 30 009 пожара. </p>
+    <p>За съжаление, при тези инциденти са загинали 109 души, а 339 са били ранени, което подчертава сериозността на проблема.</p>
+    <h2 class="chart-heading">Пожари</h2>
+    <div class="programming-status">
+        <div class="chart-container">
+            <canvas class="my-chart"></canvas>
+        </div>
+        
+        <div class="details">
+            <ul>
+                <li>Пожари в сгради: <span class="percentage">12%</span></li>
+                <li>Автопожари: <span class="percentage">7%</span></li>
+                <li>Горски пожари: <span class="percentage">1%</span></li>
+                <li>Треви/Храсти: <span class="percentage">34%</span></li>
+                <li>Отпадаци: <span class="percentage">21%</span></li>
+                <li>Други: <span class="percentage">25%</span></li>
+            </ul>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="js/chart1.js"></script>
   </div>
 
   <script>
@@ -40,5 +63,6 @@
     }
   </script>
 
+  
 </body>
 </html>
