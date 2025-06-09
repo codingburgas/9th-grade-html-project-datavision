@@ -38,3 +38,17 @@
     text-align: center;
   }
 }
+
+body.light-theme .navbar {
+  background: #2196f3;
+}
+
+body.light-theme .navbar a:hover {
+  background-color: #1976d2;
+  color: #ffffff;
+}
+
+body.light-theme .navbar a.active {
+  background-color: #1976d2;
+  color: #ffffff;
+}

@@ -54,3 +54,25 @@ th {
 .status-waiting {
   color: #ffa726;
 }
+
+body.light-theme {
+  background: #ffffff;
+  color: #2c2c2c;
+}
+
+body.light-theme .content {
+  background-color: #f5f5f5;
+}
+
+body.light-theme table,
+body.light-theme th,
+body.light-theme td {
+  border-color: #e0e0e0;
+  background-color: #ffffff;
+  color: #2c2c2c;
+}
+
+body.light-theme th {
+  background-color: #2196f3;
+  color: #fff;
+}

@@ -124,3 +124,69 @@ button[type="submit"]:hover {
     padding: 30px;
   }
 }
+
+
+body.light-theme {
+  background: #ffffff;
+  color: #2c2c2c; 
+}
+
+body.light-theme .content {
+  background-color: #f5f5f5;
+  box-shadow: 0 6px 15px rgba(33, 150, 243, 0.3);
+  color: #2c2c2c; 
+}
+
+body.light-theme .login-box {
+  background-color: #ffffff;
+  box-shadow: 0 5px 15px rgba(33, 150, 243, 0.4);
+  color: #2c2c2c; 
+}
+
+body.light-theme .login-header h1 {
+  color: #1976d2;
+}
+
+body.light-theme .login-header p {
+  color: #2c2c2c;
+}
+
+body.light-theme label {
+  color: #555555;
+}
+
+body.light-theme input[type="text"],
+body.light-theme input[type="password"] {
+  border-color: #2196f3;
+  background-color: #ffffff;
+  color: #2c2c2c;
+}
+
+body.light-theme button[type="submit"] {
+  background-color: #2196f3;
+  color: #ffffff;  
+}
+
+body.light-theme button[type="submit"]:hover {
+  background-color: #1976d2;
+  color: #ffffff;  
+}
+
+body.light-theme .register-btn {
+  border-color: #1976d2;
+  color: #1976d2;
+}
+
+body.light-theme .register-btn:hover {
+  background-color: #1976d2;
+  color: #ffffff;
+}
+
+
+body.light-theme h1,
+body.light-theme h2,
+body.light-theme h3,
+body.light-theme p,
+body.light-theme div {
+  color: #2c2c2c;
+}
