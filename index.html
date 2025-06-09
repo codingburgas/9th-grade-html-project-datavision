@@ -3,10 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Home </title>
+  <title>Home</title>
   <link rel="stylesheet" href="css/styles.css" />
-  <link rel="stylesheet" href="css/navbar.css">
-
+  <link rel="stylesheet" href="css/navbar.css" />
 </head>
 <body>
 
@@ -18,27 +17,75 @@
     <a href="incidents.html">Incidents</a>
     <a href="statistics.html">Statistics</a>
     <a href="map.html">Map</a>
-    <a href="login.html">Log in</a>
   </div>
 
   <div class="content">
-    <h1>Home</h1>
-    
+    <h1>Добре дошли в системата за Пожарна безопасност и защита на населението</h1>
+    <p>
+      Този уеб сайт предоставя актуална информация за пожарните служби, наличните ресурси,
+      както и статистика за възникнали произшествия. Основната ни цел е да подпомогнем
+      ефективната комуникация и реакция в случай на инциденти.
+    </p>
+    <ul>
+      <li>Следете състоянието на екипите в реално време</li>
+      <li>Достъп до пълна база данни за автомобили и служители</li>
+      <li>Интерактивна карта с възникнали инциденти</li>
+      <li>Филтриране и визуализация на статистика</li>
+    </ul>
+    <h2>Контакти</h2>
+    <p>Гореща линия: <strong>112</strong> | Електронна поща: <a href="mailto:datavision@gmail.bg">datavision@gmail.bg</a></p>
+
+    <h2>Последни новини</h2>
+    <ul id="newsList"></ul>
   </div>
 
-  <script>
-    const navbar = document.getElementById('navbar');
-    const links = navbar.getElementsByTagName('a');
-    const currentPage = window.location.pathname.split("/").pop();
+  <!-- Бутон за смяна на тема -->
+  <button id="themeToggle">🌙 Смени тема</button>
 
-    for(let i = 0; i < links.length; i++) {
-      const linkPage = links[i].getAttribute('href');
-      if(linkPage === currentPage) {
-        links[i].classList.add('active');
-      } else {
-        links[i].classList.remove('active');
-      }
-    }
+  <!-- Външен JS (ако имаш js/main.js) -->
+  <script src="js/main.js" defer></script>
+
+
+  <!-- Новини + Тема -->
+  <script>
+    // Последни новини
+    (function() {
+      const newsList = document.getElementById('newsList');
+      if (!newsList) return;
+      const sampleNews = [
+        '🔥 [05.06.2025] Нов модерен команден център беше открит в София.',
+        '🚒 [03.06.2025] Пожарната в Пловдив получи 3 нови спасителни автомобила.',
+        '🧯 [01.06.2025] Проведено е обучение по противопожарна безопасност в училище „Св. Климент Охридски“.',
+        '🚨 [29.05.2025] Пожар в индустриална зона на Варна овладян за под 30 минути благодарение на нова технология.',
+        '👨‍🚒 [27.05.2025] Служителят Иван Стоянов бе награден за 20 години вярна служба.',
+        '🏞️ [25.05.2025] Стартира кампанията „Безопасни гори“ – съвместна инициатива с МВР.',
+        '📊 [22.05.2025] Обявена нова функция: Графики за произшествия по региони и тип.',
+        '📱 [20.05.2025] Пуснато ново мобилно приложение за граждански сигнали за произшествия.'
+      ];
+      sampleNews.forEach(news => {
+        const li = document.createElement('li');
+        li.textContent = news;
+        newsList.appendChild(li);
+      });
+    })();
+
+    // Смяна на тема
+    (function() {
+      const btn = document.getElementById('themeToggle');
+      if (!btn) return;
+
+      const savedTheme = localStorage.getItem('theme') || 'light';
+      document.documentElement.setAttribute('data-theme', savedTheme);
+      btn.textContent = savedTheme === 'dark' ? '🌞 Светла тема' : '🌙 Тъмна тема';
+
+      btn.addEventListener('click', () => {
+        const current = document.documentElement.getAttribute('data-theme');
+        const newTheme = current === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        btn.textContent = newTheme === 'dark' ? '🌞 Светла тема' : '🌙 Тъмна тема';
+      });
+    })();
   </script>
 
 </body>
