@@ -3,6 +3,8 @@ body {
   margin: 0;
   background: #121212;
   color: #eee;
+  display: flex;
+  flex-direction: column;
 }
 
 p {

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <title>Вход | Пожарна Система</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/login.css">
+  <link rel="stylesheet" href="css/navbar.css">
+</head>
+<body>
+    <div class="navbar" id="navbar">
+        <a href="index.html">Home</a>
+        <a href="information.html">Information</a>
+        <a href="employer.html">Employer</a>
+        <a href="cars.html">Cars</a>
+        <a href="incidents.html">Incidents</a>
+        <a href="statistics.html">Statistics</a>
+        <a href="map.html">Map</a>
+        <a href="login.html" class="active">Log in</a>
+    </div>
+
+    <div class="content">
+        <div class="login-wrapper">
+    <div class="login-box">
+      <div class="login-header">
+        <h1>Пожарна Безопасност</h1>
+        <p>Вход в системата за управление</p>
+      </div>
+      <form id="loginForm">
+        <label for="username">Потребителско име:</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password">Парола:</label>
+        <input type="password" id="password" name="password" required>
+
+        <div class="options">
+          <label><input type="checkbox">Запомни ме</label>
+        </div>
+
+        <button type="submit">Вход</button>
+
+        <div class="signup-button">
+          <p>Нямате акаунт?</p>
+          <a href="register.html">
+            <button type="button" class="register-btn">Създай профил</button>
+          </a>
+        </div>
+      </form>
+    </div>
+  </div>
+    </div>
+  
+</body>
+</html>
