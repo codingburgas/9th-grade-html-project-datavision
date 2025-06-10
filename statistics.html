@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="css/incidents.css" />
   <link rel="stylesheet" href="css/chart1.css" />
   <link rel="stylesheet" href="css/chart2.css" />
+  <link rel="stylesheet" href="css/chart3.css" />
   <link rel="stylesheet" href="css/theme-toggle.css" />
 </head>
 <body>
@@ -69,12 +70,34 @@
         </ul>
       </div>
     </div>
+
+    <h2 class="chart-heading1">Разпределение на обажданията по време на денонощието</h2>
+    <p>Анализът на данните показва, че най-много спешни обаждания за пожари се получават между 14:00 и 18:00 часа.</p>
+    <p>Най-малко инциденти се регистрират през нощните часове между 02:00 и 06:00 сутринта.</p>
+
+    <div class="programming-status2">
+      <div class="chart-container2">
+        <canvas class="my-chart2"></canvas>
+      </div>
+      <div class="details">
+        <ul>
+          <li>00:00-06:00: <span class="percentage">8%</span></li>
+          <li>06:00-12:00: <span class="percentage">18%</span></li>
+          <li>12:00-18:00: <span class="percentage">42%</span></li>
+          <li>18:00-00:00: <span class="percentage">32%</span></li>
+        </ul>
+      </div>
+    </div>
+  
   </div>
+
+  
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
   <script src="js/chart1.js"></script>
   <script src="js/chart2.js"></script>
+  <script src="js/char3.js"></script>
 
   <script>
     const navbar = document.getElementById('navbar');
