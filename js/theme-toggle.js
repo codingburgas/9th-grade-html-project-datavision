@@ -1,7 +1,7 @@
 let currentTheme = 'dark';
 
 document.addEventListener('DOMContentLoaded', () => {
-  loadThemeFromURL();
+  loadTheme();
   createThemeToggle();
   applyTheme();
 });
@@ -26,18 +26,32 @@ function createThemeToggle() {
   toggleButton.addEventListener('click', toggleTheme);
 }
 
-function loadThemeFromURL() {
+function loadTheme() {
+  
   const urlParams = new URLSearchParams(window.location.search);
   const themeParam = urlParams.get('theme');
-  if (themeParam === 'light') {
-    currentTheme = 'light';
+  
+  if (themeParam) {
+    currentTheme = themeParam === 'light' ? 'light' : 'dark';
+    
+    localStorage.setItem('theme', currentTheme);
   } else {
-    currentTheme = 'dark';
+    
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+      currentTheme = savedTheme;
+    } else {
+      currentTheme = 'dark'; 
+    }
   }
 }
 
 function toggleTheme() {
   currentTheme = currentTheme === 'dark' ? 'light' : 'dark';
+  
+  // Save to localStorage
+  localStorage.setItem('theme', currentTheme);
+  
   applyTheme();
   updateAllLinks();
 }
@@ -61,15 +75,16 @@ function updateToggleButtonContent(button) {
   if (currentTheme === 'light') {
     button.innerHTML = `
       <span class="theme-icon">☀️</span>
-      <span class="theme-text">Светла</span>
+      <span class="theme-text">Light</span>
     `;
   } else {
     button.innerHTML = `
       <span class="theme-icon">🌙</span>
-      <span class="theme-text">Тъмна</span>
+      <span class="theme-text">Dark</span>
     `;
   }
 }
+
 function updateToggleButton(button) {
   if (button) {
     updateToggleButtonContent(button);
@@ -87,11 +102,8 @@ function updateAllLinks() {
     const href = link.getAttribute('href');
     const url = new URL(href, window.location.origin);
     
-    if (currentTheme === 'light') {
-      url.searchParams.set('theme', 'light');
-    } else {
-      url.searchParams.delete('theme');
-    }
+    
+    url.searchParams.delete('theme');
     
     link.setAttribute('href', url.pathname + url.search);
   });
