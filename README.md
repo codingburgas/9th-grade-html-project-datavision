@@ -1,6 +1,6 @@
 <h1 align="center">DataVision</h1>
 <p align = "center">
-  <img alt="logo" src="" width=300px>
+  <img alt="logo" src="logo/Logo.jpg" width=300px>
 </p>
 
 <br>
