@@ -1,4 +1,3 @@
-// Theme management using URL parameters
 let currentTheme = 'dark';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -8,7 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 function createThemeToggle() {
-  // Remove any existing toggle first
   const existingToggle = document.querySelector('.theme-toggle-container');
   if (existingToggle) {
     existingToggle.remove();
@@ -20,12 +18,10 @@ function createThemeToggle() {
   const toggleButton = document.createElement('button');
   toggleButton.className = 'theme-toggle';
   toggleButton.id = 'themeToggle';
-  
-  // Set initial content
   updateToggleButtonContent(toggleButton);
   
   toggleContainer.appendChild(toggleButton);
-  document.body.appendChild(toggleContainer); // Add directly to body
+  document.body.appendChild(toggleContainer);
 
   toggleButton.addEventListener('click', toggleTheme);
 }
@@ -74,8 +70,6 @@ function updateToggleButtonContent(button) {
     `;
   }
 }
-
-// Legacy function for compatibility
 function updateToggleButton(button) {
   if (button) {
     updateToggleButtonContent(button);
@@ -88,7 +82,6 @@ function updateToggleButton(button) {
 }
 
 function updateAllLinks() {
-  // Update all navigation links to include theme parameter
   const links = document.querySelectorAll('a[href$=".html"]');
   links.forEach(link => {
     const href = link.getAttribute('href');
