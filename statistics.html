@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Statistics</title>
   <link rel="stylesheet" href="css/styles.css" />
-  <link rel="stylesheet" href="css/navbar.css">
-  <link rel="stylesheet" href="css/incidents.css">
-  <link rel="stylesheet" href="css/chart1.css">
-  <link rel="stylesheet" href="css/theme-toggle.css">
-
+  <link rel="stylesheet" href="css/navbar.css" />
+  <link rel="stylesheet" href="css/incidents.css" />
+  <link rel="stylesheet" href="css/chart1.css" />
+  <link rel="stylesheet" href="css/chart2.css" />
+  <link rel="stylesheet" href="css/theme-toggle.css" />
 </head>
 <body>
 
@@ -26,29 +26,51 @@
 
   <div class="content">
     <h1>Statistics</h1>
-    <p> Според данните за 2015 г., службите за пожарна безопасност са реагирали на общо 55 434 обаждания, като от тях са регистрирани 30 009 пожара. </p>
+    <p>Според данните за 2015 г., службите за пожарна безопасност са реагирали на общо 55 434 обаждания, като от тях са регистрирани 30 009 пожара.</p>
     <p>За съжаление, при тези инциденти са загинали 109 души, а 339 са били ранени, което подчертава сериозността на проблема.</p>
-    <h2 class="chart-heading">Пожари</h2>
+
+    <h2 class="chart-heading">Пожари по видове</h2>
     <div class="programming-status">
-        <div class="chart-container">
-            <canvas class="my-chart"></canvas>
-        </div>
-        
-        <div class="details">
-            <ul>
-                <li>Пожари в сгради: <span class="percentage">12%</span></li>
-                <li>Автопожари: <span class="percentage">7%</span></li>
-                <li>Горски пожари: <span class="percentage">1%</span></li>
-                <li>Треви/Храсти: <span class="percentage">34%</span></li>
-                <li>Отпадаци: <span class="percentage">21%</span></li>
-                <li>Други: <span class="percentage">25%</span></li>
-            </ul>
-        </div>
+      <div class="chart-container">
+        <canvas class="my-chart"></canvas>
+      </div>
+      <div class="details">
+        <ul>
+          <li>Пожари в сгради: <span class="percentage">12%</span></li>
+          <li>Автопожари: <span class="percentage">7%</span></li>
+          <li>Горски пожари: <span class="percentage">1%</span></li>
+          <li>Треви/Храсти: <span class="percentage">34%</span></li>
+          <li>Отпадаци: <span class="percentage">21%</span></li>
+          <li>Други: <span class="percentage">25%</span></li>
+        </ul>
+      </div>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="js/chart1.js"></script>
+    <h2 class="chart-heading1">Пожари по години (2020-2024)</h2>
+    <p>През периода 2020–2024 година общият брой загинали при произшествия е 493 души.</p>
+    <p>Най-висок процент загинали е отчетен през 2020 г. — около 25% от общия брой за петте години.</p>
+    <p>Най-нисък е процентът за 2021 г., когато загиналите са около 11% от общия брой.</p>
+
+    <div class="programming-status1">
+      <div class="chart-container1">
+        <canvas class="my-chart1"></canvas>
+      </div>
+      <div class="details">
+        <ul>
+          <li>През 2020: <span class="percentage">25%</span></li>
+          <li>През 2021: <span class="percentage">11%</span></li>
+          <li>През 2022: <span class="percentage">22%</span></li>
+          <li>През 2023: <span class="percentage">21%</span></li>
+          <li>През 2024: <span class="percentage">22%</span></li>
+        </ul>
+      </div>
+    </div>
   </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <script src="js/chart1.js"></script>
+  <script src="js/chart2.js"></script>
 
   <script>
     const navbar = document.getElementById('navbar');
@@ -56,8 +78,7 @@
     const currentPage = window.location.pathname.split("/").pop();
 
     for(let i = 0; i < links.length; i++) {
-      const linkPage = links[i].getAttribute('href');
-      if(linkPage === currentPage) {
+      if(links[i].getAttribute('href') === currentPage) {
         links[i].classList.add('active');
       } else {
         links[i].classList.remove('active');
