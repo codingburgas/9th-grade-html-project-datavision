@@ -76,3 +76,18 @@ body.light-theme th {
   background-color: #2196f3;
   color: #fff;
 }
+
+body.light-theme .status-free {
+  color: #2e7d32;
+  font-weight: 600;
+}
+
+body.light-theme .status-busy {
+  color: #d32f2f;
+  font-weight: 600;
+}
+
+body.light-theme .status-waiting {
+  color: #f57c00;
+  font-weight: 600;
+}
